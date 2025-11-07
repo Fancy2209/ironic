@@ -136,6 +136,7 @@ int IPC_Init(void) {
 
 uint8_t IPC_Read8(uint32_t addr) {
 	uint8_t ret;
+	memset(&msg, 0, sizeof(msg));
 	msg.u32[0] = IRONIC_PPC_READ8;
 	msg.u32[1] = addr;
 	msg.u32[2] = 0;
@@ -154,6 +155,7 @@ uint8_t IPC_Read8(uint32_t addr) {
 
 uint16_t IPC_Read16(uint32_t addr) {
 	uint16_t ret;
+	memset(&msg, 0, sizeof(msg));
 	msg.u32[0] = IRONIC_PPC_READ16;
 	msg.u32[1] = addr;
 	msg.u32[2] = 0;
@@ -172,6 +174,7 @@ uint16_t IPC_Read16(uint32_t addr) {
 
 uint32_t IPC_Read32(uint32_t addr) {
 	uint32_t ret;
+	memset(&msg, 0, sizeof(msg));
 	msg.u32[0] = IRONIC_PPC_READ32;
 	msg.u32[1] = addr;
 	msg.u32[2] = 0;
@@ -190,6 +193,7 @@ uint32_t IPC_Read32(uint32_t addr) {
 
 void IPC_Write8(uint32_t addr, uint8_t data) {
 	char resp[2];
+	memset(&msg, 0, sizeof(msg));
 	msg.u32[0]  = IRONIC_PPC_WRITE8;
 	msg.u32[1]  = addr;
 	msg.u32[2]  = 0;
@@ -214,6 +218,7 @@ void IPC_Write8(uint32_t addr, uint8_t data) {
 
 void IPC_Write16(uint32_t addr, uint16_t data) {
 	char resp[2];
+	memset(&msg, 0, sizeof(msg));
 	msg.u32[0] = IRONIC_PPC_WRITE16;
 	msg.u32[1] = addr;
 	msg.u32[2] = 0;
@@ -238,6 +243,7 @@ void IPC_Write16(uint32_t addr, uint16_t data) {
 
 void IPC_Write32(uint32_t addr, uint32_t data) {
 	char resp[2];
+	memset(&msg, 0, sizeof(msg));
 	msg.u32[0] = IRONIC_PPC_WRITE32;
 	msg.u32[1] = addr;
 	msg.u32[2] = 0;
